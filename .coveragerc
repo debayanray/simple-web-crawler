@@ -1,0 +1,9 @@
+[run]
+branch = True
+source = spider
+
+[report]
+ignore_errors = True
+
+[html]
+directory = cover
