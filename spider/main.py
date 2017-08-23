@@ -15,8 +15,6 @@ import urlparse
 
 import requests
 
-# import parsers
-
 
 class Spider(object):
 
@@ -26,28 +24,56 @@ class Spider(object):
     It is the HTML <a> regexp
     """
 
-    parsers = None
+    _parsers = None
     """Contains all parsers"""
 
     scrape_data = None
-    """Contains the complete scrape data"""
+    """Contains the complete scrape data.
 
-#     def __init__(self, base_url, parsers=None):
-    def __init__(self, base_url):
+    The scrape data remains in this form:
+
+        {
+            "http://vendor.com": {
+                "Same Domain URLs": set(["http://vendor.com/about-us",
+                                         "http://vendor.com/contact-us",
+                                         ...
+                                        ])
+                "External URLs": set(["http://google.com/blah-blah",
+                                      "http://twitter.com/blah-blah",
+                                      ...
+                                    ])
+                <parser1 display-name>: set([parsed_data_1,
+                                             parsed_data_2,
+                                             ...
+                                            ])
+                <parser2 display-name>: ...
+
+                ...
+            }
+            "http://vendor.com/products": {
+                "Same Domain URLs": ...
+                "External URLs": ...
+                <parser1 display-name>: ...
+                <parser2 display-name>: ...
+                ...
+            }
+            ...
+        }
+    """
+
+    def __init__(self, base_url, parsers=None):
         """A class which scrapes the web page data recursively.
 
-        It uses it parsers to do the parsing jobs and displays the
-        gathered data when queried.
+        It uses it's _parsers collection to do the parsing jobs and
+        displays the gathered data when queried.
         :param base_url: The base URL to scrape. It should include scheme
             portion of the URL. For now only ``http`` is supported.
             example: http://vendor.com
-        :param parsers: collection of parsers. Defaults to None
+        :param parsers: collection of parsers. Defaults to None.
         """
         self._base_url = base_url
-#         self.parsers = parsers or []
-        self.parsers = []
+        self._parsers = parsers or []
         self.scrape_data = {}
-#         self.parsers.append(parsers.EmailParser())
 
     def _crawl(self, url, max_level):
         # Limit the recursion level
@@ -86,7 +112,7 @@ class Spider(object):
         for samedomain_url in samedomain_urls:
             self._crawl(samedomain_url, max_level - 1)
 
-        for parser in self.parsers:
+        for parser in self._parsers:
             result = parser.parse(resp.text)
             self.scrape_data[url].update({
                 result.display_name: result.parsed_data
@@ -104,37 +130,7 @@ class Spider(object):
     def display_weave_result(self, indent=1):
         """Display the scraped data.
 
-        It outputs the data on sys::out. The scraped data remains in this
-        form:
-
-            {
-                "http://vendor.com": {
-                    "Same Domain URLs": set(["http://vendor.com/about-us",
-                                             "http://vendor.com/contact-us",
-                                             ...
-                                            ])
-                    "External URLs": set(["http://google.com/blah-blah",
-                                          "http://twitter.com/blah-blah",
-                                          ...
-                                        ])
-                    <parser1 display-name>: set([parsed_data_1,
-                                                 parsed_data_2,
-                                                 ...
-                                                ])
-                    <parser2 display-name>: ...
-
-                    ...
-                }
-                "http://vendor.com/products": {
-                    "Same Domain URLs": ...
-                    "External URLs": ...
-                    <parser1 display-name>: ...
-                    <parser2 display-name>: ...
-                    ...
-                }
-                ...
-            }
-
+        It outputs the data on std::out.
         :param indent: The indentation to be maintained while displaying
             the result. Defaults to 1.
         """
@@ -149,13 +145,17 @@ class Spider(object):
                 print(underline_pattern * len(item))
 
         for url, url_data in self.scrape_data.items():
-
+            print('\n'),
             formatted_print(url, underline_pattern='^')
-
             for item_attr, item_val in url_data.items():
-
                 formatted_print(
                     item_attr, underline_pattern='-', indent=indent)
+                if item_val:
+                    for val in item_val:
+                        formatted_print(val, indent=(indent * 2))
+                else:
+                    formatted_print('N/A', indent=(indent * 2))
 
-                for val in item_val:
-                    formatted_print(val, indent=(indent * 2))
+    def add_parser(self, parser):
+        """Append the parser to it's parser collection."""
+        self._parsers.append(parser)

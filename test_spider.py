@@ -10,18 +10,22 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from spider import main
+import spider
+from spider import parsers
 
 base_url = 'http://wiprodigital.com'
 web_spider = None
-NO_ITERATIONS = 3
+NO_ITERATIONS = 1
 MAX_DEPTH = 1
 
 
 def setUp():
     """initialize the spider."""
     global web_spider
-    web_spider = main.Spider(base_url)
+    web_spider = spider.Spider(base_url)
+    # Add specific parsers
+    web_spider.add_parser(parsers.EmailParser())
+    web_spider.add_parser(parsers.ImageParser())
 
 
 def test_spider():
@@ -38,7 +42,7 @@ if __name__ == '__main__':
     web_spider.display_weave_result(indent=2)
 
     print('-' * 120)
-    print(('Ran %(number)s passes on "%(url)s" (depth - %(max_depth)s) '
+    print(('Ran %(number)s pass(s) on "%(url)s" (depth - %(max_depth)s) '
            'in %(time)s sec ( %(time_msec)s msec/pass ).') %
           {'number': NO_ITERATIONS, 'url': base_url, 'max_depth': MAX_DEPTH,
            'time': time_taken,

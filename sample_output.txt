@@ -1,0 +1,84 @@
+~/simple-web-crawler$ python test_spider.py
+
+http://wiprodigital.com
+^^^^^^^^^^^^^^^^^^^^^^^
+   Same Domain URLs
+   ----------------
+     http://wiprodigital.com/news/yahoo-com-digital-transforms-everything-including-wipro-rajan-kohli/
+     http://wiprodigital.com/case-study-redefining-newborn-care-for-volusense/
+     http://wiprodigital.com/designit-approach/
+     http://wiprodigital.com/
+     http://wiprodigital.com/get-in-touch#wddi-locations
+     http://wiprodigital.com/news/ai-design-can-make-artificial-intelligence-less-artificial-intelligent/
+     http://wiprodigital.com/join-our-team#wdwork-vid
+     http://wiprodigital.com/?s=&post_type[]=post
+     http://wiprodigital.com#AllcontntAggr
+     http://wiprodigital.com/join-our-team
+     http://wiprodigital.com/?s=&post_type[]=news
+     http://wiprodigital.com/events/hannover-messe-2017-adding-value-industry-4-0/
+     http://wiprodigital.com/2017/02/07/nrfs-retails-big-show-digital/
+     http://wiprodigital.com/what-we-do
+     http://wiprodigital.com#NewcontntAggr
+     http://wiprodigital.com/2017/08/15/transforming-marketing-practice-think-like-developer-full-stack-marketer/
+     http://wiprodigital.com#EvtcontntAggr
+     http://wiprodigital.com/cases/case-study-esab/
+     http://wiprodigital.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwiprodigital.com%2F&#038;format=xml
+     http://wiprodigital.com/what-we-think
+     http://wiprodigital.com/what-we-do#work-three-circles-row
+     http://wiprodigital.com/2017/02/14/taking-digital-transformation-beyond-digital/
+     http://wiprodigital.com/who-we-are
+     http://wiprodigital.com/get-in-touch#wddi-contact
+     http://wiprodigital.com/?s=&post_type[]=cases
+     http://wiprodigital.com/xmlrpc.php?rsd
+     http://wiprodigital.com/who-we-are#wdteam_leaders
+     http://wiprodigital.com/who-we-are#wdteam_meetus
+     http://wiprodigital.com/2017/08/03/taking-patternlab-modularity-next-level/
+     http://wiprodigital.com/cases/progressive-metering-a-utilitys-strategic-move-into-predictive-planning/
+     http://wiprodigital.com/events/are-you-a-design-disruptor/
+     http://wiprodigital.com/events/event-heres-how-to-fix-the-global-usability-crisis/
+     http://wiprodigital.com#InscontntAggr
+     http://wiprodigital.com/news/wipro-launches-silicon-valley-innovation-center-mountain-view/
+     http://wiprodigital.com/?s=&post_type[]=events
+     http://wiprodigital.com/cases/in24/
+     http://wiprodigital.com/what-we-do#wdwork_cases
+     http://wiprodigital.com/events/helping-kids-explore-the-future-of-sports-with-chelsea-fc/
+     http://wiprodigital.com/Future Services: Wipro Digital (IDC Analyst Report)
+     http://wiprodigital.com/2017/08/17/enabling-digital-transformation/
+     http://wiprodigital.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwiprodigital.com%2F
+     http://wiprodigital.com/join-our-team#wdcareers_jobs
+     http://wiprodigital.com/2017/06/13/engineering-strategic-design-become-part-cmos-remit/
+     http://wiprodigital.com/get-in-touch
+     http://wiprodigital.com/designit-approach
+     http://wiprodigital.com/news/new-survey-highlights-leadership-crisis-digital-transformation/
+     http://wiprodigital.com/cases/increasing-customer-value-through-iot-for-jcb-india/
+     http://wiprodigital.com#CascontntAggr
+     http://wiprodigital.com/what-we-do#wdwork_partners
+     http://wiprodigital.com
+     http://wiprodigital.com/cases/case-study-speaking-from-the-heart/
+     http://wiprodigital.com/news/designit-bank-leumi-gear-launch-pepper-israels-first-standalone-digital-bank/
+     http://wiprodigital.com/events/wipro-digital-keynote-2016-digital-business-summit-berlin/
+     http://wiprodigital.com/join-our-team#wdcareers_team
+     http://wiprodigital.com/2017/08/08/rise-mobile-banking-defining-success-customer-led-revolution/
+     http://wiprodigital.com/privacy-policy
+     http://wiprodigital.com/who-we-are/#wdteam-vid
+     http://wiprodigital.com/xmlrpc.php
+   External URLs
+   -------------
+     http://17776-presscdn-0-6.pagely.netdna-cdn.com/wp-content/uploads/2016/08/Fav_icon_144x144.png
+     http://17776-presscdn-0-6.pagely.netdna-cdn.com/wp-includes/wlwmanifest.xml
+     https://twitter.com/wiprodigital
+     https://www.facebook.com/WiproDigital/
+     https://www.linkedin.com/company/wipro-digital
+     http://17776-presscdn-0-6.pagely.netdna-cdn.com/wp-content/themes/wiprodigital/style.css
+     https://plus.google.com/+Wiprodigital
+     http://iot.wiprodigital.com/
+   E-mail Addresses
+   ----------------
+     N/A
+   Images
+   ------
+     https://dc.ads.linkedin.com/collect/?pid=71713&fmt=gif
+     http://17776-presscdn-0-6.pagely.netdna-cdn.com/wp-content/themes/wiprodigital/images/logo.png
+------------------------------------------------------------------------------------------------------------------------
+Ran 1 pass(s) on "http://wiprodigital.com" (depth - 1) in 1.10388016701 sec ( 1103.88016701 msec/pass ).
+~/simple-web-crawler$ 
